@@ -23,19 +23,21 @@ public class UrlShortenerService {
 
 	public Shortner addUrlShortener(Shortner shortenerPost) throws MalformedURLException {
 		UrlShortener urlObj = (UrlShortener) urlShortenerRepository.save(UrlShortenerBuilder.buildData(shortenerPost));
-		Shortner shortner = UrlShortenerBuilder.buildApiData(urlObj);
-	
+		Shortner shortner = UrlShortenerBuilder.buildApiData(urlObj);	
 		return shortner;
 	}
 	
 	public Shortner getUrlShortener(String tinyUrlKey) {
-		UrlShortener urlObj = (UrlShortener) urlShortenerRepository.findByTinyUrlKey(tinyUrlKey);
+		UrlShortener urlObj = null;
+		Shortner shortner = null;
+		urlObj = (UrlShortener) urlShortenerRepository.findByTinyUrlKey(tinyUrlKey);
+		if(urlObj !=null) {
 		UrlShortenerHits  urlShortenerHits = new UrlShortenerHits();
 		urlShortenerHits.setUrlShortenerId(urlObj.getId());
 		urlShortenerHits.setCreatedOn(new Date());
 		urlShortenerHitsRepository.save(urlShortenerHits);
-		Shortner shortner = UrlShortenerBuilder.buildApiData(urlObj);
-	
+		shortner = UrlShortenerBuilder.buildApiData(urlObj);
+		}
 		return shortner;
 	}
 	

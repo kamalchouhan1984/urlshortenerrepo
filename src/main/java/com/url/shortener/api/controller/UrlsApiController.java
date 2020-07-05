@@ -61,15 +61,21 @@ public class UrlsApiController implements UrlsApi {
 		UrlShortener urlObj = urlShortenerRepository.findByOriginalUrl(shortnerPost.getOriginalUrl());
 
 		if (urlObj != null) {
+			response.setStatusCode(Constants.BAD_REQUEST);
+			response.setStatusMessage(Constants.URL_ALLREADY_EXIST);
 			response.setErrorMessages(Constants.URL_ALLREADY_EXIST);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 		}
 
-		Shortner url = null;
+		Shortner shortner = null;
 		try {
-			url = urlShortenerService.addUrlShortener(shortnerPost);
-			response.setResults(url);
+			shortner = urlShortenerService.addUrlShortener(shortnerPost);
+			response.setResults(shortner);
+			response.setStatusCode(Constants.OK);
+			response.setMessages(Constants.SUCCESS);
 		} catch (MalformedURLException e) {
+			response.setStatusCode(Constants.BAD_REQUEST);
+			response.setStatusMessage(Constants.INVALID_URL);
 			response.setErrorMessages(Constants.INVALID_URL);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 		}
@@ -94,9 +100,7 @@ public class UrlsApiController implements UrlsApi {
 		System.out.println("getUrlHits");
 		System.out.println(tinyUrlKey);
 		UrlHitsResponse res = urlShortenerHitsService.getUrlShortenerHits(tinyUrlKey, startDate, endDate);
-//		UrlHitsResponse res= new UrlHitsResponse();
 		return ResponseEntity.ok().body(res);
-		// return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 	}
 
 	public ResponseEntity<UrlsResponse> getUrls(
