@@ -1,0 +1,30 @@
+CREATE TABLE `url_shortener_hits` (
+  `id` int NOT NULL,
+  `created_on` datetime(6) DEFAULT NULL,
+  `url_shortener_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `url_shortener` (
+  `id` int NOT NULL,
+  `created_on` datetime(6) DEFAULT NULL,
+  `expandedurl` varchar(255) DEFAULT NULL,
+  `expires_on` datetime(6) DEFAULT NULL,
+  `host` varchar(255) DEFAULT NULL,
+  `original_url` varchar(255) DEFAULT NULL,
+  `scheme` varchar(255) DEFAULT NULL,
+  `tiny_url` varchar(255) DEFAULT NULL,
+  `tiny_url_key` varchar(255) DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `user` (
+  `id` int NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
