@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.url.shortener.api.model.Pagination;
 import com.url.shortener.api.model.UrlHitsResponse;
@@ -14,7 +14,7 @@ import com.url.shortener.data.repository.UrlShortenerHitsRepository;
 import com.url.shortener.data.repository.UrlShortenerRepository;
 import com.url.shortener.utils.UrlShortenerBuilder;
 
-@Component
+@Service
 public class UrlShortenerHitsService {
 	@Autowired
 	UrlShortenerHitsRepository urlShortenerHitsRepository;
@@ -38,14 +38,14 @@ public class UrlShortenerHitsService {
 		UrlHitsResponse urlHitsResponse =new UrlHitsResponse();
 		Pagination pagination =new Pagination();
 		UrlShortener urlShortener = (UrlShortener) urlShortenerRepository.findByTinyUrlKey(tinyUrlKey);
-		Date startDateObj= new Date();
-		Date endDateObj= new Date() ;
-
-		if (startDate != null && endDate != null) {
-//			startDate = new Date();
-//			endDate = new Date();
+//		Date startDateObj= new Date();
+//		Date endDateObj= new Date() ;
 //
-		}
+//		if (startDate != null && endDate != null) {
+////			startDate = new Date();
+////			endDate = new Date();
+////
+//		}
 		List<UrlShortenerHits> list = urlShortenerHitsRepository.findAllByUrlShortenerId(urlShortener.getId());
 		if(list !=null && list.size()>0) {
 			System.out.println(list.size());

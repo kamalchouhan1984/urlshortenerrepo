@@ -1,11 +1,11 @@
 package com.url.shortener.data.service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.url.shortener.data.model.User;
 import com.url.shortener.data.repository.UserRepository;
 
-@Component
+@Service
 public class UserService {
 	
 	@Autowired

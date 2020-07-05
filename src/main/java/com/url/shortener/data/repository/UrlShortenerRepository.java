@@ -7,5 +7,4 @@ public interface UrlShortenerRepository extends CrudRepository<UrlShortener, Int
 	public UrlShortener findByTinyUrlKey(String urlKey);
 	public UrlShortener findByOriginalUrl(String originalUrl);
 
-
 }

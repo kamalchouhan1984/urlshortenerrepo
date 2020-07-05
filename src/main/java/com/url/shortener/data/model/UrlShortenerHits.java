@@ -7,14 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-
 public class UrlShortenerHits {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)	
 	private int id;
 	private int userId;
 	private int urlShortenerId;
 	private Date createdOn;
+	
 	public int getId() {
 		return id;
 	}

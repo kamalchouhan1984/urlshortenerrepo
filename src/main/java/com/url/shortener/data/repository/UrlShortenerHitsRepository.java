@@ -10,10 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface UrlShortenerHitsRepository extends CrudRepository<UrlShortenerHits, Integer> {
 
 	List<UrlShortenerHits> getByUrlShortenerId(int id);
-//	List <UrlShortenerHits> getByUrlShortenerCreationOnBetween(Date creationStartDate,Date creationEndDate);
-
 	List<UrlShortenerHits> findAllByIdAndCreatedOnBetween(Integer id, Date start, Date endDate);
 	List<UrlShortenerHits> findAllByUrlShortenerId(Integer id);
-
 	List<UrlShortenerHits> getAllByUrlShortenerId(int id);
 }

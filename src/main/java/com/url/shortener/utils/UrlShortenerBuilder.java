@@ -13,7 +13,7 @@ public class UrlShortenerBuilder {
 
 	public static UrlShortener buildData(Shortner shortnerPost) throws MalformedURLException {
 
-		UrlShortener urlShortener = ShortenerUtils.extractUrl(shortnerPost);	
+		UrlShortener urlShortener = ShortenerUtils.extractUrl(shortnerPost);
 
 		return urlShortener;
 	}
@@ -24,7 +24,7 @@ public class UrlShortenerBuilder {
 		if (urlShortener.getCreatedOn() != null)
 			shortnerPost.setCreatedOn(urlShortener.getCreatedOn().toString());
 		shortnerPost.setHost(urlShortener.getHost());
-		//shortnerPost.setTinyUrl(urlShortener.getTinyUrl());
+		// shortnerPost.setTinyUrl(urlShortener.getTinyUrl());
 		if (urlShortener.getExpiresOn() != null)
 			shortnerPost.setExpiresOn(urlShortener.getExpiresOn().toString());
 		shortnerPost.setUserId(urlShortener.getUserId());
@@ -33,15 +33,15 @@ public class UrlShortenerBuilder {
 		shortnerPost.setScheme(urlShortener.getScheme());
 		return shortnerPost;
 	}
-	
-	public static List<UrlHits> buildApiDataHits(List <UrlShortenerHits> list) {
-		  List<UrlHits> results = new ArrayList();
-		  for(UrlShortenerHits obj:list) {
-			  UrlHits urlHits =new UrlHits();
-			  urlHits.setCreatedOn(obj.getCreatedOn().toString());
-			  results.add(urlHits);
-		  }
-		  return results;
+
+	public static List<UrlHits> buildApiDataHits(List<UrlShortenerHits> list) {
+		List<UrlHits> results = new ArrayList();
+		for (UrlShortenerHits obj : list) {
+			UrlHits urlHits = new UrlHits();
+			urlHits.setCreatedOn(obj.getCreatedOn().toString());
+			results.add(urlHits);
+		}
+		return results;
 	}
 
 }

@@ -1,9 +1,5 @@
 package com.url.shortener.api.model;
 import java.util.Objects;
-import java.util.UUID;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.validation.annotation.Validated;
 
@@ -19,54 +15,17 @@ import io.swagger.annotations.ApiModelProperty;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-07-05T11:01:55.190+05:30[Asia/Calcutta]")
 public class UrlHits   {
-//  @JsonProperty("tinyUrlKey")
-//  private String tinyUrlKey = null;
-
-//  @JsonProperty("hits")
-//  private Integer hits = null;
 
   @JsonProperty("createdOn")
   private String createdOn = null;
 
-//  public UrlHits tinyUrlKey(String tinyUrlKey) {
-//    this.tinyUrlKey = tinyUrlKey;
-//    return this;
-//  }
-
-  /**
-   * Get tinyUrlKey
-   * @return tinyUrlKey
-  **/
-//  @ApiModelProperty(required = true, value = "")
-//  @NotNull
-
-//  @Valid
-//  public String getTinyUrlKey() {
-//    return tinyUrlKey;
-//  }
-//
-//  public void setTinyUrlKey(String tinyUrlKey) {
-//    this.tinyUrlKey = tinyUrlKey;
-//  }
-
-//  public UrlHits hits(Integer hits) {
-//    this.hits = hits;
-//    return this;
-//  }
 
   /**
    * Get hits
    * @return hits
   **/
   @ApiModelProperty(example = "12345", value = "")
-//
-//  public Integer getHits() {
-//    return hits;
-//  }
 
-//  public void setHits(Integer hits) {
-//    this.hits = hits;
-//  }
 
   public UrlHits createdOn(String createdOn) {
     this.createdOn = createdOn;

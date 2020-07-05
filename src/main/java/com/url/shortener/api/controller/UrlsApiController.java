@@ -25,6 +25,7 @@ import com.url.shortener.data.model.UrlShortener;
 import com.url.shortener.data.repository.UrlShortenerRepository;
 import com.url.shortener.data.service.UrlShortenerHitsService;
 import com.url.shortener.data.service.UrlShortenerService;
+import com.url.shortener.utils.Constants;
 
 import io.swagger.annotations.ApiParam;
 
@@ -60,7 +61,7 @@ public class UrlsApiController implements UrlsApi {
 		UrlShortener urlObj = urlShortenerRepository.findByOriginalUrl(shortnerPost.getOriginalUrl());
 
 		if (urlObj != null) {
-			response.setErrorMessages("URL already exist");
+			response.setErrorMessages(Constants.URL_ALLREADY_EXIST);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 		}
 
@@ -69,7 +70,7 @@ public class UrlsApiController implements UrlsApi {
 			url = urlShortenerService.addUrlShortener(shortnerPost);
 			response.setResults(url);
 		} catch (MalformedURLException e) {
-			response.setErrorMessages("Invalid Url");
+			response.setErrorMessages(Constants.INVALID_URL);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 		}
 
@@ -107,12 +108,4 @@ public class UrlsApiController implements UrlsApi {
 		System.out.println(sortField);
 		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 	}
-
-//	public ResponseEntity<Shortner> updateHits(@RequestBody Shortner body,
-//			@ApiParam(value = "Unique url of key", required = true) @PathVariable("tinyUrlKey") String tinyUrlKey) {
-//		System.out.println("updateHits");
-//		System.out.println(tinyUrlKey);
-//		urlShortenerHitsService.addUrlShortenerHits(tinyUrlKey);
-//		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-//	}
 }

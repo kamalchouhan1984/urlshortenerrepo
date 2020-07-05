@@ -187,8 +187,7 @@ public class UrlsResponse   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UrlsResponse {\n");
-    
+    sb.append("class UrlsResponse {\n");    
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    statusMessage: ").append(toIndentedString(statusMessage)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");

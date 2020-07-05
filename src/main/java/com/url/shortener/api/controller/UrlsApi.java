@@ -118,22 +118,4 @@ public interface UrlsApi {
         }
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
-
-//
-//    @ApiOperation(value = "Update number of hits on url", nickname = "updateHits", notes = "", response = Shortner.class, tags={  })
-//    @ApiResponses(value = { 
-//        @ApiResponse(code = 201, message = "Created", response = Shortner.class),
-//        @ApiResponse(code = 403, message = "No permission") })
-//    @RequestMapping(value = "/urls/{tinyUrlKey}",
-//        produces = { "application/json" }, 
-//        consumes = { "application/json" },
-//        method = RequestMethod.PATCH)
-//    default ResponseEntity<Shortner> updateHits(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Shortner body,@ApiParam(value = "Unique url of key",required=true) @PathVariable("tinyUrlKey") String tinyUrlKey) {
-//        if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
-//        } else {
-//            log.warn("ObjectMapper or HttpServletRequest not configured in default UrlsApi interface so no example is generated");
-//        }
-//        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-//    }
-
 }

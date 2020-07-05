@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.url.shortener.api.model.Shortner;
 import com.url.shortener.data.model.UrlShortener;
@@ -13,7 +13,7 @@ import com.url.shortener.data.repository.UrlShortenerHitsRepository;
 import com.url.shortener.data.repository.UrlShortenerRepository;
 import com.url.shortener.utils.UrlShortenerBuilder;
 
-@Component
+@Service
 public class UrlShortenerService {
 
 	@Autowired
@@ -39,14 +39,4 @@ public class UrlShortenerService {
 		return shortner;
 	}
 	
-	/*
-	 * public Shortner addUrlShortener(ShortnerPost shortenerPost) { UrlShortener
-	 * urlObj = (UrlShortener)
-	 * urlShortenerRepository.save(UrlShortenerBuilder.buildData(shortenerPost));
-	 * Shortner shortner = UrlShortenerBuilder.buildApiData(urlObj); List<Shortner>
-	 * list = new ArrayList<>(); list.add(shortner); UrlsResponse urlsResponse = new
-	 * UrlsResponse(); urlsResponse.setResults(list); Pagination page = new
-	 * Pagination(); page.setLimit(1); page.offset(0); page.setTotal(1);
-	 * urlsResponse.setPagination(page); return shortner; }
-	 */
 }
